@@ -1,0 +1,9 @@
+.env
+*.pyc
+__pycache__/
+*.pkl
+*.db
+data/historical/
+.venv/
+venv/
+*.log
