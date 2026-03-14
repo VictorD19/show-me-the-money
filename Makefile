@@ -1,4 +1,4 @@
-.PHONY: install download-history train run-bot run-dashboard run-testnet setup lint clean
+.PHONY: install download-history train run-bot run-dashboard run-testnet setup lint clean run-api
 
 # Instalar dependencias
 install:
@@ -45,6 +45,10 @@ clean:
 	rm -rf logs/bot_*.log
 	rm -rf __pycache__ core/__pycache__ scripts/__pycache__
 
+# Rodar API FastAPI
+run-api:
+	uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+
 # Ajuda
 help:
 	@echo "Comandos disponiveis:"
@@ -58,4 +62,5 @@ help:
 	@echo "  make run-dashboard    - Rodar dashboard Streamlit"
 	@echo "  make setup            - Setup completo (install + download + train)"
 	@echo "  make init-db          - Criar tabelas no banco"
+	@echo "  make run-api          - Rodar API FastAPI"
 	@echo "  make clean            - Limpar modelos e logs"
